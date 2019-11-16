@@ -114,10 +114,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="App_Data\ArmyDatabase.mdf" />
-    <Content Include="App_Data\ArmyDatabase_log.ldf">
-      <DependentUpon>ArmyDatabase.mdf</DependentUpon>
-    </Content>
     <Content Include="BuildAUnit.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -125,16 +121,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Data\UnitModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>UnitModel.Context.cs</LastGenOutput>
-      <DependentUpon>UnitModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Data\UnitModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UnitModel.edmx</DependentUpon>
-      <LastGenOutput>UnitModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -147,13 +133,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="Data\UnitModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UnitModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Data\UnitModel.edmx.diagram">
-      <DependentUpon>UnitModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -203,7 +182,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BuildAUnit.aspx.cs">
       <DependentUpon>BuildAUnit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BuildAUnit.aspx.designer.cs">
       <DependentUpon>BuildAUnit.aspx</DependentUpon>
@@ -216,35 +194,10 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DataController\Context.cs" />
     <Compile Include="Data\DiceSizes.cs" />
     <Compile Include="Data\Equipment.cs" />
     <Compile Include="Classes\Race.cs" />
-    <Compile Include="Data\Race.cs">
-      <DependentUpon>UnitModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\SkillLevel.cs" />
-    <Compile Include="Data\Trait.cs">
-      <DependentUpon>UnitModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Unit.cs">
-      <DependentUpon>UnitModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\UnitModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UnitModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\UnitModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UnitModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\UnitModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UnitModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Data\UnitTrait.cs" />
     <Compile Include="Data\UnitTypes.cs" />
     <Compile Include="Default.aspx.cs">
@@ -293,6 +246,10 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="DataController\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

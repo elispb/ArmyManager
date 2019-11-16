@@ -15,7 +15,7 @@ namespace ArmyManager.Data
         }
         public static void AddTypeBonus(Unit unitToModify)
         {
-            switch (unitToModify.Type)
+            switch ((UnitType)unitToModify.UnitType)
             {
                 case UnitType.Flying:
                     unitToModify.Morale += 3;
@@ -33,7 +33,7 @@ namespace ArmyManager.Data
                     unitToModify.Morale -= 1;
                     break;
                 case UnitType.Infantry:
-                    unitToModify.Defence += 1;
+                    unitToModify.Defense += 1;
                     unitToModify.Toughness += 1;
                     break;
                 case UnitType.Seige:

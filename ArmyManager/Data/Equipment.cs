@@ -1,4 +1,6 @@
 ﻿
+using ArmyManager.Classes;
+
 namespace ArmyManager.Data
 {
     public class Equipment
