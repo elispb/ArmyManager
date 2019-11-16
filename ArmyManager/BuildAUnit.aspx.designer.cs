@@ -22,6 +22,15 @@ namespace ArmyManager {
         protected global::System.Web.UI.HtmlControls.HtmlForm UnitForm;
         
         /// <summary>
+        /// UnitName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText UnitName;
+        
+        /// <summary>
         /// RaceDropdown control.
         /// </summary>
         /// <remarks>

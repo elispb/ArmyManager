@@ -9,7 +9,7 @@
 <body>
     <form id="UnitForm" runat="server">
         <div>
-            <input id="UnitName" type="text" required="required" spellcheck="True" title="Unit Name" value="Unit Name" />
+            <input id="UnitName" name="UnitName" type="text" spellcheck="True" title="Unit Name" value="Unit Name" runat="server"/>
             <asp:DropDownList ID="RaceDropdown" runat="server">
             </asp:DropDownList>
             <asp:DropDownList ID="XPLevelDropdown" runat="server">

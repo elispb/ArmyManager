@@ -3,7 +3,11 @@ using ArmyManager.Data;
 using ArmyManager.DataController;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI.WebControls;
+using static ArmyManager.Data.DiceSizes;
+using static ArmyManager.Data.Equipment;
+using static ArmyManager.Data.SkillLevel;
 using Unit = ArmyManager.Classes.Unit;
 
 namespace ArmyManager
@@ -16,16 +20,18 @@ namespace ArmyManager
             dc = new Controller();
 
             dc.Races.Add(new Race("My Race"));
-            dc.Traits.Add(new Traits() { Name = "My Trait"});
+            dc.Traits.Add(new Traits() { Name = "My Trait" });
 
+
+            //Populate dropdowns
             foreach (var r in dc.Races)
             {
                 ListItem item = new ListItem(r.Name);
                 RaceDropdown.Items.Add(item);
             }
-            foreach (var r in Enum.GetValues(typeof(SkillLevel.Level)))
+            foreach (var r in Enum.GetValues(typeof(Level)))
             {
-                ListItem item = new ListItem(Enum.GetName(typeof(SkillLevel.Level), r), r.ToString());
+                ListItem item = new ListItem(Enum.GetName(typeof(Level), r), r.ToString());
                 XPLevelDropdown.Items.Add(item);
             }
             foreach (var r in Enum.GetValues(typeof(UnitTypes.UnitType)))
@@ -33,14 +39,14 @@ namespace ArmyManager
                 ListItem item = new ListItem(Enum.GetName(typeof(UnitTypes.UnitType), r), r.ToString());
                 UnitTypeDropdown.Items.Add(item);
             }
-            foreach (var r in Enum.GetValues(typeof(Equipment.EquipmentLevel)))
+            foreach (var r in Enum.GetValues(typeof(EquipmentLevel)))
             {
-                ListItem item = new ListItem(Enum.GetName(typeof(Equipment.EquipmentLevel), r), r.ToString());
+                ListItem item = new ListItem(Enum.GetName(typeof(EquipmentLevel), r), r.ToString());
                 EquipmentDropdown.Items.Add(item);
             }
-            foreach (var r in Enum.GetValues(typeof(DiceSizes.Dice)))
+            foreach (var r in Enum.GetValues(typeof(Dice)))
             {
-                ListItem item = new ListItem(Enum.GetName(typeof(DiceSizes.Dice), r), r.ToString());
+                ListItem item = new ListItem(Enum.GetName(typeof(Dice), r), r.ToString());
                 SizeDropdown.Items.Add(item);
             }
             foreach (var r in dc.Traits)
@@ -54,19 +60,20 @@ namespace ArmyManager
         {
             if (ValidInputs())
             {
-                var name = UnitForm.Name;
-
+                var name = UnitName.Value;
+                var race = dc.Races.Select(x => x).Where(r => r.Name == RaceDropdown.SelectedValue).FirstOrDefault();
+                Enum.TryParse(XPLevelDropdown.SelectedValue, out Level level);
+                Enum.TryParse(EquipmentDropdown.SelectedValue, out EquipmentLevel equipment);
+                Enum.TryParse(UnitTypeDropdown.SelectedValue, out UnitTypes.UnitType unitType);
+                Enum.TryParse(SizeDropdown.SelectedValue, out Dice size);
 
 
                 //create canned test data
-                var race = new Race(name);
-                var unit = new Unit("NameOfUnit", race, SkillLevel.Level.Elite, Equipment.EquipmentLevel.Heavy,
-                    UnitTypes.UnitType.Archers, new List<Traits>(), DiceSizes.Dice.d10);
+                var unit = new Unit(name, race, level, equipment,
+                    unitType, new List<Traits>(), size);
 
 
                 dc.Units.Add(unit);
-                dc.Races.Add(race);
-                dc.Races.Add(race);
                 dc.Races.Add(race);
 
                 dc.SaveAll();
