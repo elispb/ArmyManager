@@ -106,6 +106,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="App_Data\ArmyDatabase.mdf" />
+    <Content Include="App_Data\ArmyDatabase_log.ldf">
+      <DependentUpon>ArmyDatabase.mdf</DependentUpon>
+    </Content>
     <Content Include="BuildAUnit.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -227,9 +231,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
