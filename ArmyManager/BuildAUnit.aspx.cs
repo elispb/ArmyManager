@@ -19,8 +19,12 @@ namespace ArmyManager
         {
             dc = new Controller();
 
-            dc.Races.Add(new Race("My Race"));
-            dc.Traits.Add(new Traits() { Name = "My Trait" });
+            dc.Races.Add(new Race("My Race 0"));
+            dc.Races.Add(new Race("My Race 1"));
+            dc.Races.Add(new Race("My Race 2"));
+            dc.Traits.Add(new Traits() { Name = "My Trait 0" });
+            dc.Traits.Add(new Traits() { Name = "My Trait 1" });
+            dc.Traits.Add(new Traits() { Name = "My Trait 2" });
 
 
             //Populate dropdowns
@@ -52,7 +56,7 @@ namespace ArmyManager
             foreach (var r in dc.Traits)
             {
                 ListItem item = new ListItem(r.Name);
-                TraitsDropdown.Items.Add(item);
+                TraitsList.Items.Add(item);
             }
         }
 

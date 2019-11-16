@@ -76,13 +76,13 @@ namespace ArmyManager {
         protected global::System.Web.UI.WebControls.DropDownList SizeDropdown;
         
         /// <summary>
-        /// TraitsDropdown control.
+        /// TraitsList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TraitsDropdown;
+        protected global::System.Web.UI.WebControls.CheckBoxList TraitsList;
         
         /// <summary>
         /// CreateUnitButton control.

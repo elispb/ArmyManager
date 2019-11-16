@@ -20,8 +20,8 @@
             </asp:DropDownList>
             <asp:DropDownList ID="SizeDropdown" runat="server">
             </asp:DropDownList>
-            <asp:DropDownList ID="TraitsDropdown" runat="server">
-            </asp:DropDownList>
+            <asp:CheckBoxList ID="TraitsList" runat="server">
+            </asp:CheckBoxList>
         </div>
         <div>
             <asp:Button ID="CreateUnitButton" runat="server" Text="Button" OnClick="Button1_Click" />
