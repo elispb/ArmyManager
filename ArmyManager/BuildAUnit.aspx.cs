@@ -70,23 +70,28 @@ namespace ArmyManager
                 Enum.TryParse(EquipmentDropdown.SelectedValue, out EquipmentLevel equipment);
                 Enum.TryParse(UnitTypeDropdown.SelectedValue, out UnitTypes.UnitType unitType);
                 Enum.TryParse(SizeDropdown.SelectedValue, out Dice size);
+                List<Traits> unitTratits = new List<Traits>();
 
+                foreach(var sItem in TraitsList.Items.Cast<ListItem>().Where(sItem => sItem.Selected))
+                {
+                    var toAdd = dc.Traits.Find(t => t.Name == sItem.Value);
+                    unitTratits.Add(toAdd);
+                }
 
-                //create canned test data
+                //Create unit from inputs
                 var unit = new Unit(name, race, level, equipment,
-                    unitType, new List<Traits>(), size);
+                    unitType, unitTratits, size);
 
-
+                //Add Unit and Race to DataLists
                 dc.Units.Add(unit);
                 dc.Races.Add(race);
-
                 dc.SaveAll();
             }
         }
 
         private bool ValidInputs()
         {
-            if (string.IsNullOrWhiteSpace(UnitForm.Name))
+            if (string.IsNullOrWhiteSpace(UnitName.Value))
             {
                 return false;
             }
