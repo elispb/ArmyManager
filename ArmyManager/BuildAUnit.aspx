@@ -7,12 +7,24 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="UnitForm" runat="server">
         <div>
             <input id="UnitName" type="text" required="required" spellcheck="True" title="Unit Name" value="Unit Name" />
-            </div>
+            <asp:DropDownList ID="RaceDropdown" runat="server">
+            </asp:DropDownList>
+            <asp:DropDownList ID="XPLevelDropdown" runat="server">
+            </asp:DropDownList>
+            <asp:DropDownList ID="UnitTypeDropdown" runat="server">
+            </asp:DropDownList>
+            <asp:DropDownList ID="EquipmentDropdown" runat="server">
+            </asp:DropDownList>
+            <asp:DropDownList ID="SizeDropdown" runat="server">
+            </asp:DropDownList>
+            <asp:DropDownList ID="TraitsDropdown" runat="server">
+            </asp:DropDownList>
+        </div>
         <div>
-            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+            <asp:Button ID="CreateUnitButton" runat="server" Text="Button" OnClick="Button1_Click" />
         </div>
     </form>
 </body>
