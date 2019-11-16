@@ -2,9 +2,9 @@
 using System.Configuration;
 using System.IO;
 
-namespace ArmyManager.Data
+namespace ArmyManager.Classes
 {
-    public class Traits
+    public class Trait
     {
         public string Name { get; set; }
         public string Description { get; set; }

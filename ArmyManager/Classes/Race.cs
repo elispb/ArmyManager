@@ -9,7 +9,7 @@ namespace ArmyManager.Classes
     public class Race
     {
         public string Name { get; set; }
-        public List<Traits> RaceTraits { get; set; }
+        public List<Trait> RaceTraits { get; set; }
         public int Attack { get; set; }
         public int Defence { get; set; }
         public int Power { get; set; }
@@ -19,7 +19,7 @@ namespace ArmyManager.Classes
         public Race(string name)
         {
             Name = name;
-            RaceTraits = new List<Traits>();
+            RaceTraits = new List<Trait>();
         }
     }
 }

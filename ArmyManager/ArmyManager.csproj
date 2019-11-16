@@ -194,11 +194,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\ArmyModel.cs" />
     <Compile Include="Data\DiceSizes.cs" />
     <Compile Include="Data\Equipment.cs" />
     <Compile Include="Classes\Race.cs" />
     <Compile Include="Data\SkillLevel.cs" />
-    <Compile Include="Data\UnitTrait.cs" />
+    <Compile Include="Classes\Trait.cs" />
     <Compile Include="Data\UnitTypes.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
