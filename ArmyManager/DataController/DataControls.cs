@@ -1,18 +1,14 @@
 ﻿using ArmyManager.Classes;
 using ArmyManager.Data;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Web;
 
 namespace ArmyManager.DataController
 {
     public class DataControls
     {
-        private string SaveLocation = "C:\\Users\\elisp\\source\\repos\\ArmyManager\\ArmyManager\\App_Data\\";
+        private static string SaveLocation = "C:\\Users\\elisp\\ArmyDataStore\\";
 
         public List<Race> Races;
         public List<Traits> Traits;
@@ -32,6 +28,15 @@ namespace ArmyManager.DataController
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, Units);
+            }
+        }
+
+        public static void Save(Unit unitToSave)
+        {
+            using (StreamWriter file = File.CreateText($"{SaveLocation}Units.Json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, unitToSave);
             }
         }
     }

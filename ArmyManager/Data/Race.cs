@@ -15,6 +15,7 @@ namespace ArmyManager.Data
         public Race(string name)
         {
             Name = name;
+            RaceTraits = new List<Traits>();
         }
     }
 }

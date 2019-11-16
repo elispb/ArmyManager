@@ -1,10 +1,8 @@
-﻿using ArmyManager.Data;
+﻿using ArmyManager.Classes;
+using ArmyManager.Data;
+using ArmyManager.DataController;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ArmyManager
 {
@@ -17,13 +15,11 @@ namespace ArmyManager
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            foreach (Race r in Races )
-            {}
-        }
-
-        private LoadRaces()
-        {
-
+            //create canned test data
+            var race = new Race("Dwarf");
+            var unit = new Unit(race, SkillLevel.Level.Elite, Equipment.EquipmentLevel.Heavy,
+                UnitTypes.UnitType.Archers, new List<Traits>(), DiceSizes.Dice.d10);
+            DataControls.Save(unit);
         }
     }
 }
