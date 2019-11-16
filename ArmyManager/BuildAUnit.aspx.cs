@@ -8,25 +8,14 @@ using System.Web.UI.WebControls;
 using static ArmyManager.Data.DiceSizes;
 using static ArmyManager.Data.Equipment;
 using static ArmyManager.Data.SkillLevel;
-using Unit = ArmyManager.Classes.Unit;
+using Unit = ArmyManager.Data.Unit;
 
 namespace ArmyManager
 {
     public partial class BuildAUnit : System.Web.UI.Page
     {
-        public Controller dc;
         protected void Page_Load(object sender, EventArgs e)
         {
-            dc = new Controller();
-
-            dc.Races.Add(new Race("My Race 0"));
-            dc.Races.Add(new Race("My Race 1"));
-            dc.Races.Add(new Race("My Race 2"));
-            dc.Traits.Add(new Traits() { Name = "My Trait 0" });
-            dc.Traits.Add(new Traits() { Name = "My Trait 1" });
-            dc.Traits.Add(new Traits() { Name = "My Trait 2" });
-
-
             //Populate dropdowns
             foreach (var r in dc.Races)
             {
@@ -70,7 +59,7 @@ namespace ArmyManager
                 Enum.TryParse(EquipmentDropdown.SelectedValue, out EquipmentLevel equipment);
                 Enum.TryParse(UnitTypeDropdown.SelectedValue, out UnitTypes.UnitType unitType);
                 Enum.TryParse(SizeDropdown.SelectedValue, out Dice size);
-                List<Traits> unitTratits = new List<Traits>();
+                List<Trait> unitTratits = new List<Trait>();
 
                 foreach(var sItem in TraitsList.Items.Cast<ListItem>().Where(sItem => sItem.Selected))
                 {
@@ -83,9 +72,9 @@ namespace ArmyManager
                     unitType, unitTratits, size);
 
                 //Add Unit and Race to DataLists
-                dc.Units.Add(unit);
-                dc.Races.Add(race);
-                dc.SaveAll();
+                //dc.Units.Add(unit);
+                //dc.Races.Add(race);
+                //dc.SaveAll();
             }
         }
 

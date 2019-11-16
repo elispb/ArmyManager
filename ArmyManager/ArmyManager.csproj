@@ -44,12 +44,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -117,6 +125,16 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Data\UnitModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UnitModel.Context.cs</LastGenOutput>
+      <DependentUpon>UnitModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\UnitModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UnitModel.edmx</DependentUpon>
+      <LastGenOutput>UnitModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -129,6 +147,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Data\UnitModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UnitModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\UnitModel.edmx.diagram">
+      <DependentUpon>UnitModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -191,11 +216,35 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DataController\Controller.cs" />
+    <Compile Include="DataController\Context.cs" />
     <Compile Include="Data\DiceSizes.cs" />
     <Compile Include="Data\Equipment.cs" />
     <Compile Include="Classes\Race.cs" />
+    <Compile Include="Data\Race.cs">
+      <DependentUpon>UnitModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\SkillLevel.cs" />
+    <Compile Include="Data\Trait.cs">
+      <DependentUpon>UnitModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Unit.cs">
+      <DependentUpon>UnitModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UnitModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnitModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UnitModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnitModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UnitModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnitModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Data\UnitTrait.cs" />
     <Compile Include="Data\UnitTypes.cs" />
     <Compile Include="Default.aspx.cs">
@@ -231,7 +280,9 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
