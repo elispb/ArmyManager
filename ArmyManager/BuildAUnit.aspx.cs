@@ -19,7 +19,15 @@ namespace ArmyManager
             var race = new Race("Dwarf");
             var unit = new Unit("NameOfUnit", race, SkillLevel.Level.Elite, Equipment.EquipmentLevel.Heavy,
                 UnitTypes.UnitType.Archers, new List<Traits>(), DiceSizes.Dice.d10);
-            unit.Save();
+
+            var dc = new Controller();
+
+            dc.Units.Add(unit);
+            dc.Races.Add(race);
+            dc.Races.Add(race);
+            dc.Races.Add(race);
+
+            dc.SaveAll();
         }
     }
 }

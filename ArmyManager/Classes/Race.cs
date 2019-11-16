@@ -21,14 +21,5 @@ namespace ArmyManager.Classes
             Name = name;
             RaceTraits = new List<Traits>();
         }
-
-        public void Save()
-        {
-            using (StreamWriter file = File.CreateText($"{ConfigurationManager.AppSettings["RaceFilePath"]}{Name}"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, this);
-            }
-        }
     }
 }

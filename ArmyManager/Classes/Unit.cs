@@ -69,7 +69,7 @@ namespace ArmyManager.Classes
 
         public void Save()
         {
-            using (StreamWriter file = File.CreateText($"{ConfigurationManager.AppSettings["UnitFilePath"]}{Name}"))
+            using (var file = new StreamWriter($"{ConfigurationManager.AppSettings["UnitFilePath"]}{Name}", false))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, this);
