@@ -185,7 +185,11 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Data\Equipment.cs" />
     <Compile Include="Data\Races.cs" />
+    <Compile Include="Data\SkillLevel.cs" />
+    <Compile Include="Data\UnitTrait.cs" />
+    <Compile Include="Data\UnitTypes.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
