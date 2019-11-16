@@ -16,7 +16,7 @@ namespace ArmyManager.Classes
         public Level Expireince { get; private set; }
         public EquipmentLevel Equipment { get; private set; }
         public UnitType Type { get; private set; }
-        public List<UnitTrait> Traits;
+        public List<Traits> Traits;
         public int Attack { get; set; }
         public int Defence { get; set; }
         public int Power { get; set; }
@@ -26,7 +26,7 @@ namespace ArmyManager.Classes
         public Dice DiceSize { get; private set; }
 
         public Unit(Race species, Level expireince, EquipmentLevel equipmentLevel,
-            UnitType unitType, List<UnitTrait> unitTraits, Dice size)
+            UnitType unitType, List<Traits> unitTraits, Dice size)
         {
             Species = species;
             Expireince = expireince;

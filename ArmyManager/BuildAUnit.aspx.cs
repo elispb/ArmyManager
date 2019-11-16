@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArmyManager.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,6 +16,12 @@ namespace ArmyManager
         }
 
         protected void Button1_Click(object sender, EventArgs e)
+        {
+            foreach (Race r in Races )
+            {}
+        }
+
+        private LoadRaces()
         {
 
         }

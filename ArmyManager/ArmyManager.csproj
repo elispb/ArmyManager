@@ -185,6 +185,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataController\DataControls.cs" />
     <Compile Include="Data\DiceSizes.cs" />
     <Compile Include="Data\Equipment.cs" />
     <Compile Include="Data\Race.cs" />
