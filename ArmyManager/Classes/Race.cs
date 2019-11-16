@@ -8,6 +8,7 @@ namespace ArmyManager.Classes
 {
     public class Race
     {
+        public int RaceId { get; set; }
         public string Name { get; set; }
         public List<Trait> RaceTraits { get; set; }
         public int Attack { get; set; }

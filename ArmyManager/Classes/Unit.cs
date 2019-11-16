@@ -15,6 +15,7 @@ namespace ArmyManager.Classes
         private int unitSize;
 
         //Properties
+        public int UnitId { get; set; }
         public string Name { get; private set; }
         public Race Species { get; private set; }
         public Level Expireince { get; private set; }
