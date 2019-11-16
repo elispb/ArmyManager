@@ -24,19 +24,9 @@ namespace ArmyManager.DataController
 
         public void SaveAll()
         {
-            using (StreamWriter file = File.CreateText($"{SaveLocation}Units.Json"))
+            foreach(Unit u in Units)
             {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, Units);
-            }
-        }
-
-        public static void Save(Unit unitToSave)
-        {
-            using (StreamWriter file = File.CreateText($"{SaveLocation}Units.Json"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, unitToSave);
+                u.Save();
             }
         }
     }

@@ -17,9 +17,9 @@ namespace ArmyManager
         {
             //create canned test data
             var race = new Race("Dwarf");
-            var unit = new Unit(race, SkillLevel.Level.Elite, Equipment.EquipmentLevel.Heavy,
+            var unit = new Unit("NameOfUnit", race, SkillLevel.Level.Elite, Equipment.EquipmentLevel.Heavy,
                 UnitTypes.UnitType.Archers, new List<Traits>(), DiceSizes.Dice.d10);
-            DataControls.Save(unit);
+            unit.Save();
         }
     }
 }

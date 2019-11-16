@@ -1,5 +1,8 @@
 ﻿using ArmyManager.Data;
+using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using static ArmyManager.Data.DiceSizes;
 using static ArmyManager.Data.Equipment;
 using static ArmyManager.Data.SkillLevel;
@@ -12,6 +15,7 @@ namespace ArmyManager.Classes
         private int unitSize;
 
         //Properties
+        public string Name { get; private set; }
         public Race Species { get; private set; }
         public Level Expireince { get; private set; }
         public EquipmentLevel Equipment { get; private set; }
@@ -25,9 +29,10 @@ namespace ArmyManager.Classes
         public int Cost { get; private set; }
         public Dice DiceSize { get; private set; }
 
-        public Unit(Race species, Level expireince, EquipmentLevel equipmentLevel,
+        public Unit(string name, Race species, Level expireince, EquipmentLevel equipmentLevel,
             UnitType unitType, List<Traits> unitTraits, Dice size)
         {
+            Name = name;
             Species = species;
             Expireince = expireince;
             Equipment = equipmentLevel;
@@ -60,6 +65,15 @@ namespace ArmyManager.Classes
             AddSkillBonus(this);
             AddEquipmentBonus(this);
             AddTypeBonus(this);
+        }
+
+        public void Save()
+        {
+            using (StreamWriter file = File.CreateText($"{ConfigurationManager.AppSettings["UnitFilePath"]}{Name}"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, this);
+            }
         }
     }
 }

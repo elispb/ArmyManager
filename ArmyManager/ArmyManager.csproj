@@ -188,7 +188,7 @@
     <Compile Include="DataController\DataControls.cs" />
     <Compile Include="Data\DiceSizes.cs" />
     <Compile Include="Data\Equipment.cs" />
-    <Compile Include="Data\Race.cs" />
+    <Compile Include="Classes\Race.cs" />
     <Compile Include="Data\SkillLevel.cs" />
     <Compile Include="Data\UnitTrait.cs" />
     <Compile Include="Data\UnitTypes.cs" />
