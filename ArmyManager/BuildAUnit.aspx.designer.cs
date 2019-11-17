@@ -40,6 +40,15 @@ namespace ArmyManager {
         protected global::System.Web.UI.WebControls.DropDownList RaceDropdown;
         
         /// <summary>
+        /// RacesTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource RacesTable;
+        
+        /// <summary>
         /// XPLevelDropdown control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace ArmyManager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList TraitsList;
+        
+        /// <summary>
+        /// TraitsTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource TraitsTable;
         
         /// <summary>
         /// CreateUnitButton control.

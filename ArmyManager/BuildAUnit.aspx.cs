@@ -16,11 +16,6 @@ namespace ArmyManager
         protected void Page_Load(object sender, EventArgs e)
         {
             //Populate dropdowns
-            foreach (var race in ArmyContext.GetRaces())
-            {
-                ListItem item = new ListItem(race.Name);
-                RaceDropdown.Items.Add(item);
-            }
             foreach (var xpLevel in Enum.GetValues(typeof(Level)))
             {
                 ListItem item = new ListItem(Enum.GetName(typeof(Level), xpLevel), xpLevel.ToString());
@@ -41,11 +36,6 @@ namespace ArmyManager
                 ListItem item = new ListItem(Enum.GetName(typeof(Dice), size), size.ToString());
                 SizeDropdown.Items.Add(item);
             }
-            foreach (var traits in ArmyContext.GetTraits())
-            {
-                ListItem item = new ListItem(traits.Name);
-                TraitsList.Items.Add(item);
-            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -53,7 +43,7 @@ namespace ArmyManager
             if (ValidInputs())
             {
                 var name = UnitName.Value;
-                var race = ArmyContext.GetRaces().Select(x => x).Where(r => r.Name == RaceDropdown.SelectedValue).FirstOrDefault() ?? new Race("DefaultRace");
+                var race = ArmyContext.GetRaceById(int.Parse(RaceDropdown.SelectedValue));
                 Enum.TryParse(XPLevelDropdown.SelectedValue, out Level level);
                 Enum.TryParse(EquipmentDropdown.SelectedValue, out EquipmentLevel equipment);
                 Enum.TryParse(UnitTypeDropdown.SelectedValue, out UnitTypes.UnitType unitType);
@@ -62,7 +52,7 @@ namespace ArmyManager
 
                 foreach (var sItem in TraitsList.Items.Cast<ListItem>().Where(sItem => sItem.Selected))
                 {
-                    var toAdd = ArmyContext.GetTraits().Where(t => t.Name == sItem.Value).Single();
+                    var toAdd = ArmyContext.GetTraitById(int.Parse(sItem.Value));
                     unitTratits.Add(toAdd);
                 }
 
