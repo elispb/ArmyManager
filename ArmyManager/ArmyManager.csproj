@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AddPages\AddRace.aspx" />
     <Content Include="AddPages\AddTrait.aspx" />
     <Content Include="AddPages\BuildAUnit.aspx" />
     <Content Include="Contact.aspx" />
@@ -172,6 +173,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPages\AddRace.aspx.cs">
+      <DependentUpon>AddRace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddRace.aspx.designer.cs">
+      <DependentUpon>AddRace.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddPages\AddTrait.aspx.cs">
       <DependentUpon>AddTrait.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
