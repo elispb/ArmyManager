@@ -2,6 +2,7 @@ namespace ArmyManager.DataModel
 {
     using ArmyManager.Classes;
     using System.Data.Entity;
+    using System.Linq;
 
     public class ArmyContext : DbContext
     {
@@ -14,20 +15,112 @@ namespace ArmyManager.DataModel
         public static void AddUnit(Unit unit)
         {
             using (var context = new ArmyContext())
-            {
-                context.Units.Add(unit);
+            {   if (unit.UnitId > 0)
+                {
+                    UpdateUnit(unit);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    context.Units.Add(unit);
+                }
+
+                AddRace(unit.Species);
+
                 foreach (var trait in unit.Traits)
                 {
                     AddTrait(trait);
                 }
-                context.SaveChanges();
             }
         }
+
+        public static void UpdateUnit(Unit unit)
+        {
+            using (var context = new ArmyContext())
+            {
+                if (unit.UnitId > 0)
+                {
+                    var unitToUpdate = (from d in context.Units where d.UnitId == unit.UnitId select d).Single();
+
+                    unitToUpdate = unit;
+                    context.SaveChanges();
+                }
+                else
+                {
+                    AddUnit(unit);
+                }
+            }
+        }
+
         public static void AddTrait(Trait trait)
         {
             using (var context = new ArmyContext())
             {
-                context.Traits.Add(trait);
+                if (trait.TraitId > 0)
+                {
+                    UpdateTrait(trait);
+                }
+                else
+                {
+                    context.Traits.Add(trait);
+                }
+                context.SaveChanges();
+            }
+        }
+
+        public static void UpdateTrait(Trait trait)
+        {
+            using (var context = new ArmyContext())
+            {
+                if (trait.TraitId > 0)
+                {
+                    var traitToUpdate = (from d in context.Traits where d.TraitId == trait.TraitId select d).Single();
+
+                    traitToUpdate = trait;
+                    context.SaveChanges();
+                }
+                else
+                {
+                    AddTrait(trait);
+                }
+            }
+        }
+
+        public static void AddRace(Race race)
+        {
+            using (var context = new ArmyContext())
+            {
+                if (race.RaceId > 0)
+                {
+                    UpdateRace(race);
+                }
+                else
+                {
+                    context.Races.Add(race);
+                }
+                foreach(var trait in race.RaceTraits)
+                {
+                    AddTrait(trait);
+                }                
+                context.SaveChanges();
+            }
+        }
+        
+        public static void UpdateRace(Race race)
+        {
+            using (var context = new ArmyContext())
+            {
+                if (race.RaceId > 0)
+                {
+                    var raceToUpdate = (from d in context.Races where d.RaceId == race.RaceId select d).Single();
+
+                    raceToUpdate = race;
+                    context.SaveChanges();
+                }
+                else
+                {
+                    AddRace(race);
+                }
             }
         }
     }
