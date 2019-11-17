@@ -114,7 +114,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="BuildAUnit.aspx" />
+    <Content Include="AddPages\AddTrait.aspx" />
+    <Content Include="AddPages\BuildAUnit.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -171,6 +172,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPages\AddTrait.aspx.cs">
+      <DependentUpon>AddTrait.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPages\AddTrait.aspx.designer.cs">
+      <DependentUpon>AddTrait.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -180,10 +188,11 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="BuildAUnit.aspx.cs">
+    <Compile Include="AddPages\BuildAUnit.aspx.cs">
       <DependentUpon>BuildAUnit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BuildAUnit.aspx.designer.cs">
+    <Compile Include="AddPages\BuildAUnit.aspx.designer.cs">
       <DependentUpon>BuildAUnit.aspx</DependentUpon>
     </Compile>
     <Compile Include="SaveableObjects\Unit.cs" />
