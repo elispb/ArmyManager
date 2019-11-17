@@ -1,6 +1,7 @@
 namespace ArmyManager.DataModel
 {
     using ArmyManager.Classes;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
 
@@ -15,14 +16,15 @@ namespace ArmyManager.DataModel
         public static void AddUnit(Unit unit)
         {
             using (var context = new ArmyContext())
-            {   if (unit.UnitId > 0)
+            {
+                if (unit.UnitId > 0)
                 {
                     UpdateUnit(unit);
-                    context.SaveChanges();
                 }
                 else
                 {
                     context.Units.Add(unit);
+                    context.SaveChanges();
                 }
 
                 AddRace(unit.Species);
@@ -49,6 +51,22 @@ namespace ArmyManager.DataModel
                 {
                     AddUnit(unit);
                 }
+            }
+        }
+
+        public static Unit GetUnitById(int id)
+        {
+            using (var context = new ArmyContext())
+            {
+                return (from u in context.Units where u.UnitId == id select u).Single();
+            }
+        }
+
+        public static IEnumerable<Unit> GetUnits()
+        {
+            using (var context = new ArmyContext())
+            {
+                return context.Units.ToList();
             }
         }
 
@@ -86,6 +104,22 @@ namespace ArmyManager.DataModel
             }
         }
 
+        public static Trait GetTraitById(int id)
+        {
+            using (var context = new ArmyContext())
+            {
+                return (from t in context.Traits where t.TraitId == id select t).Single();
+            }
+        }
+
+        public static IEnumerable<Trait> GetTraits()
+        {
+            using (var context = new ArmyContext())
+            {
+                return context.Traits.ToList();
+            }
+        }
+
         public static void AddRace(Race race)
         {
             using (var context = new ArmyContext())
@@ -98,14 +132,14 @@ namespace ArmyManager.DataModel
                 {
                     context.Races.Add(race);
                 }
-                foreach(var trait in race.RaceTraits)
+                foreach (var trait in race.RaceTraits)
                 {
                     AddTrait(trait);
-                }                
+                }
                 context.SaveChanges();
             }
         }
-        
+
         public static void UpdateRace(Race race)
         {
             using (var context = new ArmyContext())
@@ -121,6 +155,22 @@ namespace ArmyManager.DataModel
                 {
                     AddRace(race);
                 }
+            }
+        }
+
+        public static Race GetRaceById(int id)
+        {
+            using (var context = new ArmyContext())
+            {
+                return (from r in context.Races where r.RaceId == id select r).Single();
+            }
+        }
+
+        public static IEnumerable<Race> GetRaces()
+        {
+            using (var context = new ArmyContext())
+            {
+                return context.Races.ToList();
             }
         }
     }

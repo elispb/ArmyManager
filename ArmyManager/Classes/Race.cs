@@ -17,6 +17,10 @@ namespace ArmyManager.Classes
         public int Toughness { get; set; }
         public int Morale { get; set; }
 
+        public Race()
+        {
+            RaceTraits = new List<Trait>();
+        }
         public Race(string name)
         {
             Name = name;

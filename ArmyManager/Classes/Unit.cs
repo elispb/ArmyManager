@@ -30,6 +30,8 @@ namespace ArmyManager.Classes
         public int Cost { get; private set; }
         public Dice DiceSize { get; private set; }
 
+
+        public Unit() { }
         public Unit(string name, Race species, Level expireince, EquipmentLevel equipmentLevel,
             UnitType unitType, List<Trait> unitTraits, Dice size)
         {
