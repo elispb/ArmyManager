@@ -186,7 +186,7 @@
     <Compile Include="BuildAUnit.aspx.designer.cs">
       <DependentUpon>BuildAUnit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Unit.cs" />
+    <Compile Include="SaveableObjects\Unit.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -197,9 +197,9 @@
     <Compile Include="DataModel\ArmyModel.cs" />
     <Compile Include="Data\DiceSizes.cs" />
     <Compile Include="Data\Equipment.cs" />
-    <Compile Include="Classes\Race.cs" />
+    <Compile Include="SaveableObjects\Race.cs" />
     <Compile Include="Data\SkillLevel.cs" />
-    <Compile Include="Classes\Trait.cs" />
+    <Compile Include="SaveableObjects\Trait.cs" />
     <Compile Include="Data\UnitTypes.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

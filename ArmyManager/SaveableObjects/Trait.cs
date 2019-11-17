@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.IO;
 
-namespace ArmyManager.Classes
+namespace ArmyManager.SaveableObjects
 {
     public class Trait
     {

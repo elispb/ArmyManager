@@ -1,5 +1,4 @@
-﻿
-using ArmyManager.Classes;
+﻿using ArmyManager.SaveableObjects;
 
 namespace ArmyManager.Data
 {

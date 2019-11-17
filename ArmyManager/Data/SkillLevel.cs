@@ -1,4 +1,4 @@
-﻿using ArmyManager.Classes;
+﻿using ArmyManager.SaveableObjects;
 using System.ComponentModel.DataAnnotations;
 
 namespace ArmyManager.Data

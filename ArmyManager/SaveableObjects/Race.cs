@@ -1,10 +1,6 @@
-﻿using ArmyManager.Data;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Configuration;
-using System.IO;
+﻿using System.Collections.Generic;
 
-namespace ArmyManager.Classes
+namespace ArmyManager.SaveableObjects
 {
     public class Race
     {

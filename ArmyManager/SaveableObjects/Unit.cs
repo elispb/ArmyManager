@@ -8,7 +8,7 @@ using static ArmyManager.Data.Equipment;
 using static ArmyManager.Data.SkillLevel;
 using static ArmyManager.Data.UnitTypes;
 
-namespace ArmyManager.Classes
+namespace ArmyManager.SaveableObjects
 {
     public partial class Unit
     {

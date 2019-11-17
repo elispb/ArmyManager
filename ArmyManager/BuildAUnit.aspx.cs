@@ -1,4 +1,4 @@
-﻿using ArmyManager.Classes;
+﻿using ArmyManager.SaveableObjects;
 using ArmyManager.Data;
 using ArmyManager.DataModel;
 using System;
@@ -67,7 +67,7 @@ namespace ArmyManager
                 }
 
                 //Create unit from inputs
-                var unit = new Classes.Unit(name, race, level, equipment,
+                var unit = new SaveableObjects.Unit(name, race, level, equipment,
                     unitType, unitTratits, size);
 
                 //Add Unit and Race to DataLists
