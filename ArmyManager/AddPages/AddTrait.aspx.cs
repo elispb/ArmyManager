@@ -1,6 +1,7 @@
 ﻿using ArmyManager.DataModel;
 using ArmyManager.SaveableObjects;
 using System;
+using System.Collections.Generic;
 
 namespace ArmyManager.AddPages
 {
@@ -13,7 +14,6 @@ namespace ArmyManager.AddPages
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            var race = ArmyContext.GetRaceById(int.Parse(RaceRadioButtonList.SelectedItem.Value));
 
             var trait = new Trait() {
                 Name = TraitName.Value,
@@ -21,9 +21,14 @@ namespace ArmyManager.AddPages
                 Cost = int.Parse(TraitCost.Value)
             };
 
-            race.RaceTraits.Add(trait);
+            var listOfRaces = new List<Race>();
+            for (int i = 0; i < RaceCheckBoxList.Items.Count; i++)
+            {
+                var race = ArmyContext.GetRaceById(int.Parse(RaceCheckBoxList.Items[i].Value));
+                race.RaceTraits.Add(trait);
+                ArmyContext.UpdateRace(race);
+            }
 
-            ArmyContext.UpdateRace(race);
             ArmyContext.AddTrait(trait);
         }
     }
