@@ -23,9 +23,12 @@ namespace ArmyManager.AddPages
             var listOfRaces = new List<Race>();
             for (int i = 0; i < RaceCheckBoxList.Items.Count; i++)
             {
-                var race = ArmyContext.GetRaceById(int.Parse(RaceCheckBoxList.Items[i].Value));
-                race.RaceTraits.Add(trait);
-                ArmyContext.UpdateRace(race);
+                if (RaceCheckBoxList.Items[i].Selected)
+                {
+                    var race = ArmyContext.GetRaceById(int.Parse(RaceCheckBoxList.Items[i].Value));
+                    race.RaceTraits.Add(trait);
+                    ArmyContext.UpdateRace(race);
+                }
             }
 
             ArmyContext.AddTrait(trait);
