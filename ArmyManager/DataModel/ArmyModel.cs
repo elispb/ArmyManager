@@ -31,7 +31,10 @@ namespace ArmyManager.DataModel
 
                 foreach (var trait in unit.Traits)
                 {
-                    AddTrait(trait);
+                    if (trait.TraitId <= 0)
+                    {
+                        AddTrait(trait);
+                    }
                 }
             }
         }
@@ -134,7 +137,10 @@ namespace ArmyManager.DataModel
                 }
                 foreach (var trait in race.RaceTraits)
                 {
-                    AddTrait(trait);
+                    if (trait.TraitId <= 0)
+                    {
+                        AddTrait(trait);
+                    }
                 }
                 context.SaveChanges();
             }

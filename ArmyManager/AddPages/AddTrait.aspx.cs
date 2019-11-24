@@ -14,7 +14,6 @@ namespace ArmyManager.AddPages
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
             var trait = new Trait() {
                 Name = TraitName.Value,
                 Description = TraitDesc.Value,
