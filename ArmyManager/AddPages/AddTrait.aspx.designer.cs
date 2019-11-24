@@ -49,6 +49,24 @@ namespace ArmyManager.AddPages {
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl TraitCost;
         
         /// <summary>
+        /// RaceRadioButtonList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList RaceRadioButtonList;
+        
+        /// <summary>
+        /// RaceSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource RaceSource;
+        
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>
