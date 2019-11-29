@@ -30,6 +30,8 @@ namespace ArmyManager.SaveableObjects
         public int Cost { get; private set; }
         public Dice DiceSize { get; private set; }
 
+        private int DaysSinceWounded { get; set; }
+        private int FightsWonSinceLevelUp { get; set; }
 
         public Unit() { }
         public Unit(string name, Race species, Level expireince, EquipmentLevel equipmentLevel,

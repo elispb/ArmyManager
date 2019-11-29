@@ -209,6 +209,8 @@
     <Compile Include="ArmyManager.Master.designer.cs">
       <DependentUpon>ArmyManager.Master</DependentUpon>
     </Compile>
+    <Compile Include="SaveableObjects\Army.cs" />
+    <Compile Include="SaveableObjects\Faction.cs" />
     <Compile Include="SaveableObjects\Unit.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
