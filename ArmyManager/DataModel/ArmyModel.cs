@@ -1,6 +1,6 @@
 namespace ArmyManager.DataModel
 {
-    using ArmyManager.SaveableObjects;
+    using global::ArmyManager.SaveableObjects;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;

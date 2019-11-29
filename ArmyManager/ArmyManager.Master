@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ArmyManager.master.cs" Inherits="ArmyManager.ArmyManager" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <asp:HyperLink ID="AddUnitLink" runat="server" NavigateUrl="~/AddPages/BuildAUnit.aspx">Add Unit</asp:HyperLink>
+                <asp:HyperLink ID="AddRaceLink" runat="server" NavigateUrl="~/AddPages/AddRace.aspx">Add Race</asp:HyperLink>
+                <asp:HyperLink ID="AddTraitLink" runat="server" NavigateUrl="~/AddPages/AddTrait.aspx">Add Trait</asp:HyperLink>
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ArmyManager
 {
-    public partial class SiteMaster : MasterPage
+    public partial class ArmyManager : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
