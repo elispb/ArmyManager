@@ -1,5 +1,6 @@
 ﻿using ArmyManager.Data;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
@@ -12,8 +13,6 @@ namespace ArmyManager.SaveableObjects
 {
     public partial class Unit
     {
-        private int unitSize;
-
         //Properties
         public int UnitId { get; set; }
         public string Name { get; private set; }
@@ -30,6 +29,8 @@ namespace ArmyManager.SaveableObjects
         public int Cost { get; private set; }
         public Dice DiceSize { get; private set; }
 
+
+        private int UnitSize { get; set; }
         private int DaysSinceWounded { get; set; }
         private int FightsWonSinceLevelUp { get; set; }
 
@@ -44,7 +45,7 @@ namespace ArmyManager.SaveableObjects
             Type = unitType;
             Traits = unitTraits;
             DiceSize = size;
-            unitSize = (int)size;
+            UnitSize = (int)size;
 
             Traits.AddRange(Species.RaceTraits);
 
@@ -80,5 +81,57 @@ namespace ArmyManager.SaveableObjects
                 serializer.Serialize(file, this);
             }
         }
+
+        public void RecoverOverTime(int daysRecovery)
+        {
+            if (UnitSize < (int)DiceSize)
+            {
+                if (DaysSinceWounded == 0)
+                {
+                    UnitSize++;
+                    DaysSinceWounded++;
+                    daysRecovery--;
+                }
+                while(daysRecovery >= 0 && daysRecovery-7 >= 0 && UnitSize < (int)DiceSize)
+                {
+                    UnitSize++;
+                    DaysSinceWounded += 7;
+                    daysRecovery = daysRecovery - 7;
+                }
+            }
+        }
+
+        public void TakeWound(int damage)
+        {
+            UnitSize -= damage;
+            DaysSinceWounded = 0;
+        }
+
+       public void PostBattle()
+        {
+            if(UnitSize > 0)
+            {
+                UnitSize = 0;
+                Cost = 0;
+            }
+
+            if(UnitSize < (int)DiceSize)
+            {
+                var oldSize = DiceSize;
+                while((int)DiceSize - UnitSize >= 2 && DiceSize > Dice.d4)
+                {
+                    DiceSize = DiceSize - 2;
+                }
+
+                if(oldSize > DiceSize)
+                {
+                    for(int i = 0; i < (int)oldSize - (int)DiceSize; i += 2)
+                    {
+                        Cost = (int)Math.Round(Convert.ToDouble(Cost) * 0.66);
+                    }
+                }
+            }
+        }
+
     }
 }
