@@ -24,7 +24,7 @@ namespace ArmyManager.Data
                 case Dice.d8:
                     return (int)Math.Round(Convert.ToDouble(cost) * 0.75);
                 case Dice.d10:
-                    return (int)Math.Round(Convert.ToDouble(cost) * 0.66);
+                    return (int)Math.Round(Convert.ToDouble(cost) * 0.66666);
                 case Dice.d12:
                     return (int)Math.Round(Convert.ToDouble(cost) * 0.5);
                 default:
