@@ -11,11 +11,12 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <asp:HyperLink ID="AddUnitLink" runat="server" NavigateUrl="~/AddPages/BuildAUnit.aspx">Add Unit</asp:HyperLink>
-                <asp:HyperLink ID="AddRaceLink" runat="server" NavigateUrl="~/AddPages/AddRace.aspx">Add Race</asp:HyperLink>
-                <asp:HyperLink ID="AddTraitLink" runat="server" NavigateUrl="~/AddPages/AddTrait.aspx">Add Trait</asp:HyperLink>
-            </asp:ContentPlaceHolder>
+            <asp:HyperLink ID="AddUnitLink" runat="server" NavigateUrl="~/AddPages/BuildAUnit.aspx">Add Unit</asp:HyperLink>
+            <asp:HyperLink ID="AddRaceLink" runat="server" NavigateUrl="~/AddPages/AddRace.aspx">Add Race</asp:HyperLink>
+            <asp:HyperLink ID="AddTraitLink" runat="server" NavigateUrl="~/AddPages/AddTrait.aspx">Add Trait</asp:HyperLink>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="BodyContent" runat="server"></asp:ContentPlaceHolder>
         </div>
     </form>
 </body>
