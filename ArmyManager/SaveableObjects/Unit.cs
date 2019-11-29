@@ -92,7 +92,7 @@ namespace ArmyManager.SaveableObjects
                     DaysSinceWounded++;
                     daysRecovery--;
                 }
-                while(daysRecovery >= 0 && daysRecovery-7 >= 0 && UnitSize < (int)DiceSize)
+                while (daysRecovery >= 0 && daysRecovery - 7 >= 0 && UnitSize < (int)DiceSize)
                 {
                     UnitSize++;
                     DaysSinceWounded += 7;
@@ -107,31 +107,27 @@ namespace ArmyManager.SaveableObjects
             DaysSinceWounded = 0;
         }
 
-       public void PostBattle()
+        public void PostBattle()
         {
-            if(UnitSize > 0)
+            if (UnitSize > 0)
             {
                 UnitSize = 0;
                 Cost = 0;
             }
 
-            if(UnitSize < (int)DiceSize)
+            if (UnitSize < (int)DiceSize)
             {
                 var oldSize = DiceSize;
-                while((int)DiceSize - UnitSize >= 2 && DiceSize > Dice.d4)
+                while ((int)DiceSize - UnitSize >= 2 && DiceSize > Dice.d4)
                 {
                     DiceSize = DiceSize - 2;
                 }
 
-                if(oldSize > DiceSize)
+                if (oldSize > DiceSize)
                 {
-                    for(int i = 0; i < (int)oldSize - (int)DiceSize; i += 2)
-                    {
-                        Cost = (int)Math.Round(Convert.ToDouble(Cost) * 0.66);
-                    }
+                    Cost = ApplyDiceSizeCoustMultiplier(ConvertToD6Cost(Cost, oldSize), DiceSize);
                 }
             }
         }
-
     }
 }
