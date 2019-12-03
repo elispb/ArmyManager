@@ -27,6 +27,7 @@ namespace ArmyManager.SaveableObjects
         public int Toughness { get; set; }
         public int Morale { get; set; }
         public int Cost { get; private set; }
+        public int CostMultiplier {get; private set;}
         public Dice DiceSize { get; private set; }
 
 

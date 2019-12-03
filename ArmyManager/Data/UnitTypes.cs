@@ -19,27 +19,33 @@ namespace ArmyManager.Data
             {
                 case UnitType.Flying:
                     unitToModify.Morale += 3;
+                    unitToModify.CostMultiplier = 2;
                     break;
                 case UnitType.Archers:
                     unitToModify.Power += 1;
                     unitToModify.Morale += 1;
+                    unitToModify.CostMultiplier = 1.75;
                     break;
                 case UnitType.Cavalry:
                     unitToModify.Attack += 1;
                     unitToModify.Power += 1;
                     unitToModify.Morale += 2;
+                    unitToModify.CostMultiplier = 1.5;
                     break;
                 case UnitType.Levies:
                     unitToModify.Morale -= 1;
+                    unitToModify.CostMultiplier = 0.75;
                     break;
                 case UnitType.Infantry:
                     unitToModify.Defense += 1;
                     unitToModify.Toughness += 1;
+                    unitToModify.CostMultiplier = 1;
                     break;
                 case UnitType.Seige:
                     unitToModify.Attack += 1;
                     unitToModify.Power += 1;
                     unitToModify.Toughness += 1;
+                    unitToModify.CostMultiplier = 1.5;
                     break;
             }
         }
