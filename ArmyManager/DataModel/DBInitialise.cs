@@ -5,7 +5,10 @@ using System.Web;
 
 namespace ArmyManager.DataModel
 {
-    public class DBInitialise
+    public class DBInitialise : System.Data.Entity
+    .DropCreateDatabaseIfModelChanges<ArmyContext>
     {
+        // Seed Method
+        // ...
     }
 }
