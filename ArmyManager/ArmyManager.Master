@@ -11,6 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:HyperLink ID="Home" runat="server" NavigateUrl="~/Index.aspx">Home</asp:HyperLink>
             <asp:HyperLink ID="AddUnitLink" runat="server" NavigateUrl="~/AddPages/BuildAUnit.aspx">Add Unit</asp:HyperLink>
             <asp:HyperLink ID="AddRaceLink" runat="server" NavigateUrl="~/AddPages/AddRace.aspx">Add Race</asp:HyperLink>
             <asp:HyperLink ID="AddTraitLink" runat="server" NavigateUrl="~/AddPages/AddTrait.aspx">Add Trait</asp:HyperLink>
