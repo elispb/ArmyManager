@@ -71,6 +71,11 @@ namespace ArmyManager
             {
                 return false;
             }
+            if(int.Parse(RaceDropdown.SelectedValue) == 0 ||
+                ArmyContext.GetRaceById(int.Parse(RaceDropdown.SelectedValue)) == null)
+            {
+                return false;
+            }
             return true;
         }
     }
