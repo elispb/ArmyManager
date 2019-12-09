@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArmyManager.DataModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,10 @@ namespace ArmyManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            foreach (var unit in ArmyContext.GetUnits())
+            {
+                unitDisplay.Controls.Add(new LiteralControl(DisplayHelper.UnitToHtml(unit)));
+            }
         }
     }
 }

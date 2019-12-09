@@ -42,7 +42,7 @@ namespace ArmyManager.SaveableObjects
             Expireince = expireince;
             Equipment = equipmentLevel;
             Type = unitType;
-            Traits = unitTraits;
+            Traits = unitTraits == null ? new List<Trait>(): unitTraits;
             DiceSize = size;
             UnitSize = (int)size;
 
