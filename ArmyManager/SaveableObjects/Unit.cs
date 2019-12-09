@@ -28,9 +28,8 @@ namespace ArmyManager.SaveableObjects
         public int Morale { get; set; }
         public int Cost { get; private set; }
         public Dice DiceSize { get; private set; }
+        public int UnitSize { get; private set; }
 
-
-        private int UnitSize { get; set; }
         private int DaysSinceWounded { get; set; }
         private int FightsWonSinceLevelUp { get; set; }
 

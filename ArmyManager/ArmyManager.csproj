@@ -113,7 +113,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="AddPages\AddRace.aspx" />
     <Content Include="AddPages\AddTrait.aspx" />
     <Content Include="AddPages\BuildAUnit.aspx" />
@@ -137,6 +136,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="ArmyManager.Master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Index.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -187,13 +187,6 @@
       <DependentUpon>AddTrait.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AddPages\BuildAUnit.aspx.cs">
       <DependentUpon>BuildAUnit.aspx</DependentUpon>
@@ -208,6 +201,15 @@
     </Compile>
     <Compile Include="ArmyManager.Master.designer.cs">
       <DependentUpon>ArmyManager.Master</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\DBInitialise.cs" />
+    <Compile Include="DataModel\DisplayHelper.cs" />
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="SaveableObjects\Army.cs" />
     <Compile Include="SaveableObjects\Faction.cs" />
