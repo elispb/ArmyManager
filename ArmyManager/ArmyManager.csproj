@@ -116,6 +116,10 @@
     <Content Include="AddPages\AddRace.aspx" />
     <Content Include="AddPages\AddTrait.aspx" />
     <Content Include="AddPages\BuildAUnit.aspx" />
+    <Content Include="App_Data\ArmyContext.mdf" />
+    <Content Include="App_Data\ArmyContext_log.ldf">
+      <DependentUpon>ArmyContext.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -212,7 +216,7 @@
     <Compile Include="SaveableObjects\Army.cs" />
     <Compile Include="SaveableObjects\Faction.cs" />
     <Compile Include="SaveableObjects\Unit.cs" />
-    <Compile Include="DataModel\ArmyModel.cs" />
+    <Compile Include="DataModel\ArmyContext.cs" />
     <Compile Include="Data\DiceSizes.cs" />
     <Compile Include="Data\Equipment.cs" />
     <Compile Include="SaveableObjects\Race.cs" />
@@ -246,9 +250,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
